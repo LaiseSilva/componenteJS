@@ -1,0 +1,35 @@
+.container-card{
+    display: flex;
+    
+}
+
+/*.card{
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: cornflowerblue;
+}
+
+.card-text{
+    width: 50%;
+    padding: 4px;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 5px;
+    box-shadow: 0 0 2px #000;
+}
+
+.card-image{
+    background-color: #c4c4c4;
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    background-image: url(./img/8.png);
+    background-size: cover;
+    /*borda interna
+    box-shadow: inset 0 0 12px #000 ;
+}*/
