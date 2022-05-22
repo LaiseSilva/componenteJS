@@ -13,6 +13,7 @@ const criarCardAluno = (aluno) => {
     cardAluno.dataset.nome = `${aluno.nome}`
     cardAluno.dataset.turma = `${aluno.turma}`
     cardAluno.dataset.foto = `${aluno.foto}`
+    cardAluno.dataset.bgcolor = `${aluno.status}`
     return cardAluno
 }
 

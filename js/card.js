@@ -5,15 +5,23 @@
 class card extends HTMLElement {
     constructor(){
         super();
-        this.build()
+        //this.build()
+
+        this.shadow = this.attachShadow({mode: 'open'})
     }
-    build (){
-        const shadow = this.attachShadow({mode: 'open'})
-        //função que vai criar o style do card
-        shadow.appendChild(this.styles())
-        //função responsável por criar card
-        shadow.appendChild(this.createCard())
+
+    connectedCallback(){
+        this.shadow.appendChild(this.styles())
+        this.shadow.appendChild(this.createCard())
     }
+
+    // build (){
+    //     const shadow = this.attachShadow({mode: 'open'})
+    //     //função que vai criar o style do card
+    //     shadow.appendChild(this.styles())
+    //     //função responsável por criar card
+    //     shadow.appendChild(this.createCard())
+    // }
 
     styles(){
         const style = document.createElement('style')
@@ -27,6 +35,13 @@ class card extends HTMLElement {
                 align-items: center;
                 justify-content: space-evenly;
                 background-color: ${this.bgcolor()};
+                transition: all 1s;
+            }
+
+            .card:hover{
+                cursor:pointer;
+                transform:scale(1.2);
+                box-shadow: 0px 0px 20px #000a;
             }
             
             .card-text{
@@ -67,7 +82,14 @@ class card extends HTMLElement {
 
     bgcolor(){
         //Se não tiver nenhuma cor atribuida usa a cor padrão
-        const color = this.getAttribute('data-bgcolor') ?? '#00f'
+        let color = this.getAttribute('data-bgcolor') ?? '#00f'
+
+        if(color == 'reprovado')
+            color = '#cc0000'
+        else if(color == 'aprovado')
+            color = '#008000'
+        else if(color == 'desistente')
+            color = '#878787'
         return color
     }
 
@@ -89,12 +111,6 @@ class card extends HTMLElement {
         return imagemAluno
     }
 
-    alturaCard(){
-        const altura = this.getAttribute('data-height')
-
-        return altura
-        
-    }
 
 
 }
